@@ -6,4 +6,4 @@
     - include_tasks:  "install_prereqs.yml"
     - include_tasks:  "install_cloudwatch_agent.yml"
     - include_tasks:  "create_cloudwatch_dashboard.yml"
-    - include_tasks:  "install_cloudwatch_alarm.yml"
+    # - include_tasks:  "install_cloudwatch_alarm.yml"

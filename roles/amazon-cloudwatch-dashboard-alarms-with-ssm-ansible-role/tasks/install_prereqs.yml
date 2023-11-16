@@ -9,16 +9,16 @@
     state: present
   ignore_errors: yes
 
-- name: Install a list of packages 
-  become: true
-  ansible.builtin.dnf:
-    name:
-      - wget
-      - curl
-      - unzip
-      - python3
-    state: present
-  ignore_errors: yes
+# - name: Install a list of packages 
+#   become: true
+#   ansible.builtin.dnf:
+#     name:
+#       - wget
+#       - curl
+#       - unzip
+#       - python3
+#     state: present
+#   ignore_errors: yes
 
 - name: Install pip3 on EC2
   shell: yum install python3-pip -y
