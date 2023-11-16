@@ -340,7 +340,7 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
             "type": "metric",
             "properties": {
                 "metrics": [
-					[ "CWAgent", "disk_used_percent", "path", "/", "InstanceId", "{{instance_id}}", "ImageId", "{{ami}}", "InstanceType", "{{instance_type}}", "device", "nvme0n1p1", "fstype", "xfs" ],
+					[ "CWAgent", "disk_used_percent", "path", "/", "InstanceId", "{{instance_id}}", "ImageId", "{{ami}}", "InstanceType", "{{instance_type}}", "device", "nvme0n1p1", "fstype", "xfs" ]
                 ],
                 "view": "timeSeries",
                 "stacked": false,
