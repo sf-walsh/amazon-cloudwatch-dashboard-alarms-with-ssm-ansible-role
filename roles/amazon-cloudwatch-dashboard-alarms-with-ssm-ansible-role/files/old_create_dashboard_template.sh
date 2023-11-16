@@ -340,7 +340,15 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
             "type": "metric",
             "properties": {
                 "metrics": [
-					[ "CWAgent", "disk_used_percent", "path", "/", "InstanceId", "{{instance_id}}", "ImageId", "{{ami}}", "InstanceType", "{{instance_type}}", "device", "nvme0n1p1", "fstype", "xfs" ],
+ABC
+for y in $(LANG=UTF-8 lsblk -f |grep "/" | sed 's/\`//g;s/-//g;s/|//g;') 
+do
+cat  >> /tmp/cloudwatch_dashboard_template.json <<ABC
+					[ "CWAgent", "disk_used_percent", "path", "`df -h |grep $y|awk '{print $NF}'`", "InstanceId", "{{instance_id}}", "ImageId", "{{ami}}", "InstanceType", "{{instance_type}}", "device", "$y", "fstype", "`LANG=UTF-8 lsblk -f |grep $y |awk '{print $2}'`" ],
+ABC
+done
+cat  >> /tmp/cloudwatch_dashboard_template.json <<ABC
+                    [ "...", "/dev", ".", ".", ".", ".", ".", ".", ".", "devtmpfs", ".", "devtmpfs" ]
                 ],
                 "view": "timeSeries",
                 "stacked": false,
@@ -360,3 +368,6 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
         }
     ]
 }
+ABC
+
+[ "CWAgent", "disk_used", "path", "/", "InstanceId", "i-0fd2f00655af4a235", "ImageId", "ami-0b3903ef7cdd32df9", "InstanceType", "t3.micro", "device", "nvme0n1p1", "fstype", "xfs" ]
