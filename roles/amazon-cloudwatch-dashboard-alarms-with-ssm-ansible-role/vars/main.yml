@@ -1,6 +1,9 @@
 ---
 # vars file for amazon-cloudwatch-dashboard-alarms-with-ssm-ansible-role
 
+warn_sns_topic_name: "sechub-to-slack-awschatbot-SNSTopicAWSChatBot-1ECUY5CRUIVJG"
+critical_sns_topic_name: "sechub-to-slack-awschatbot-SNSTopicAWSChatBot-1ECUY5CRUIVJG"
+
 Cloudwatch_Alarms_Warn:
   CPUUtilization:
     metric_name: "CPUUtilization"
