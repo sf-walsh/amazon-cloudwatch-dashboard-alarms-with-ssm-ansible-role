@@ -3,7 +3,7 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
     "widgets": [
         {
             "height": 3,
-            "width": 6,
+            "width": 15,
             "y": 6,
             "x": 3,
             "type": "metric",
@@ -187,7 +187,7 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
         },
         {
             "height": 1,
-            "width": 24,
+            "width": 6,
             "y": 0,
             "x": 0,
             "type": "text",
@@ -207,7 +207,7 @@ cat > /tmp/cloudwatch_dashboard_template.json <<ABC
         },
         {
             "height": 3,
-            "width": 24,
+            "width": 15,
             "y": 6,
             "x": 0,
             "type": "metric",
